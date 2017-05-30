@@ -1,0 +1,126 @@
+<section class="mt-40">
+	<div class="container">
+		<div class="col s12">
+			<h3>Cadastrar contato</h3>
+		</div>
+
+		<div class="return-msg"></div>
+
+	    <form class="col s12" action="#" method="POST">
+	    	<fieldset>
+	    		<legend>Dados para contato</legend>
+    			<div class="row">
+			        <div class="input-field col s6">
+		          		<input id="nome" type="text" name="nome">
+		          		<label for="nome">Nome</label>
+			        </div>
+
+			        <div class="input-field col s6">
+		          		<input id="email" type="text" name="email">
+		          		<label for="email">Email</label>
+			        </div>
+		      	</div>
+
+		      	<div class="row">
+			        <div class="input-field col s6">
+		          		<input id="telefone" type="text" name="telefone">
+		          		<label for="telefone">Telefone</label>
+			        </div>
+
+			        <div class="input-field col s6">
+		          		<input id="celular" type="text" name="celular">
+		          		<label for="celular">Celular</label>
+			        </div>
+		      	</div>
+	    	</fieldset>
+	      	
+
+	      	<fieldset>
+	      		<legend>Endereço</legend>
+	      		<div class="row">
+			        <div class="input-field col s6">
+		          		<input id="cep" type="text" name="cep">
+		          		<label for="cep">Cep</label>
+			        </div>
+		      	</div>
+
+		      	<div class="row">
+			        <div class="input-field col s8">
+		          		<input id="logradouro" type="text" name="logradouro">
+		          		<label for="logradouro">Logradouro</label>
+			        </div>
+
+			        <div class="input-field col s4">
+		          		<input id="numero" type="text" name="numero">
+		          		<label for="numero">Número</label>
+			        </div>
+		      	</div>
+
+		      	<div class="row">
+			        <div class="input-field col s6">
+		          		<input id="complemento" type="text" name="complemento">
+		          		<label for="complemento">Complemento</label>
+			        </div>
+
+			        <div class="input-field col s6">
+		          		<input id="bairro" type="text" name="bairro">
+		          		<label for="bairro">Bairro</label>
+			        </div>
+		      	</div>
+
+		      	<div class="row">
+			        <div class="input-field col s6">
+		          		<input id="cidade" type="text" name="cidade">
+		          		<label for="cidade">Cidade</label>
+			        </div>
+
+			        <div class="input-field col s6">
+		          		<input id="estado" type="text" name="estado">
+		          		<label for="estado">Estado</label>
+			        </div>
+		      	</div>
+
+	      	</fieldset>
+
+	      	<div class="col s12 right mt-30">
+	      		<button class="btn waves-effect waves-light red accent-4" type="submit" >Enviar
+    				<i class="material-icons right">send</i>
+				</button>
+	      	</div>
+
+	      	<div style="clear:both;"></div>
+	    </form>
+	</div>
+</section>
+
+<script>
+	$(document).ready(function(){
+		$('form').submit(function(e){
+			e.preventDefault();
+
+			var form = $(this);
+
+			$.ajax({
+				url : "/index.php?url=Contato/add",
+				type: "POST",
+				data : form.serialize(),
+				dataType: "json",
+				beforeSend: function(){
+					form.find("button").fadeOut("slow");
+				},
+				success: function(txt){
+
+					if(txt.success){
+						location.href="/Contato";
+					}else{
+						$(".return-msg").addClass("danger").html(txt.msg).fadeIn(function(){
+							form.find("button").fadeOut("slow");
+						});
+					}
+				}
+			});
+
+			
+		});
+	});
+</script>

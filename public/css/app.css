@@ -1,0 +1,51 @@
+body {
+	display: flex;
+	min-height: 100vh;
+	flex-direction: column;
+}
+
+main {
+	flex: 1 0 auto;
+}
+.full-h{
+	height: 100%;
+}
+.full-w{
+	width: 100%;
+}
+.mt-20{
+	margin-top: 20px;
+}
+.mt-30{
+	margin-top: 30px;
+}
+.mt-40{
+	margin-top: 40px;
+}
+.uptext{
+	text-transform: uppercase;
+}
+.hidden{
+	display: none;
+}
+.return-msg{
+	font-size: 15px;
+    text-align: center;
+    font-weight: 600;
+    padding: 10px;
+}
+
+.return-msg.danger{
+	color: red;
+}
+
+.return-msg.success{
+	color: green;
+}
+
+fieldset{
+	margin-top: 30px;
+}
+section{
+	padding-bottom: 40px;
+}
