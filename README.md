@@ -1,2 +1,7 @@
 # mathcrud
-Simples crud com php, mvc e  oo
+Exemplo de crud em php, utilizando MVC e OO
+
+## Técnologias utilizadas
+ - Php
+ - Jquery
+ - Materializecss
